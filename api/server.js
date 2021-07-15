@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 
 // Routes 
 app.use('/', require('./routes/Register'));
+app.use('/', require('./routes/Login'));
 
 // Database Connection
 mongoose.connect(process.env.URI, { useNewUrlParser: true}, () => {
