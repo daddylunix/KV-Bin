@@ -1,0 +1,12 @@
+{
+  "name": "pastebin-react",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Lunix",
+  "license": "MIT",
+  "scripts":{
+    "api":"cd api && yarn start",
+    "client":"cd client && yarn start"
+  }
+}
+
