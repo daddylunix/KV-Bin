@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
 require('dotenv').config()
 
 router.post('/register', async(req, res) => {
@@ -25,7 +27,8 @@ router.post('/register', async(req, res) => {
             password:hashedPassword
         })
         const savedUser = await user.save();
-        res.status(200).json(`Successfully Registered!`)
+        const token = jwt.sign({id: user._id}, process.env.JWT);
+        res.cookie('token', token).status(200).json('Successfully Registered!')
     } catch (error) {
         res.json(error);    
     }

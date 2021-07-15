@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
+require('dotenv').config()
 
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
@@ -21,7 +24,8 @@ router.post('/login', async (req, res) => {
             if (!validPassword) {
                 return res.status(400).json("Invalid Credentials");
             }
-            res.status(200).json("Successfully Logged in!")
+            const token = jwt.sign({id: user._id}, process.env.JWT)
+            res.cookie('token', token).status(200).json("Successfully Logged in");
         } catch (error) {
             res.json(error);
             console.log(error);

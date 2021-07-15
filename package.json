@@ -4,9 +4,8 @@
   "main": "index.js",
   "author": "Lunix",
   "license": "MIT",
-  "scripts":{
-    "api":"cd api && yarn start",
-    "client":"cd client && yarn start"
+  "scripts": {
+    "api": "cd api && yarn start",
+    "client": "cd client && yarn start"
   }
 }
-
