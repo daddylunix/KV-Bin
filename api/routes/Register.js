@@ -12,13 +12,13 @@ router.post('/register', async(req, res) => {
     const emailExist = await User.findOne({email: email});
     const hashedPassword = await bcrypt.hash(password, bcryptSalt);
     if (emailExist || usernameExist ) {
-        return res.status(400).json("User already exists");
+        return res.json("User already exists");
     }
     if (!username || !email || !password ) {
-        return res.status(400).json('Please fill out all fields')
+        return res.json('Please fill out all fields')
     }
     if (req.body.verified) {
-        return res.status(400).json('404')
+        return res.json('404')
     } 
     try {
         const user = new User({

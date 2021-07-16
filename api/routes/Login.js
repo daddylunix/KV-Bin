@@ -8,21 +8,21 @@ require('dotenv').config()
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) {
-        return res.status(400).json("Credentials missing!")
+        return res.json("Credentials missing!")
     }
     const emailExists = await User.findOne({ email: email });
     if (!emailExists) { 
-        return res.status(400).json(`User doesn't exist!`)
+        return res.json(`User doesn't exist!`)
     }
     else {
         try {
             const user = await User.findOne({email: email});
             if (!user) {
-                return res.status(400).json(`User doesn't exist!`)
+                return res.json(`User doesn't exist!`)
             }
             const validPassword = await bcrypt.compare(password, user.password);
             if (!validPassword) {
-                return res.status(400).json("Invalid Credentials");
+                return res.json("Invalid Credentials");
             }
             const token = jwt.sign({id: user._id}, process.env.JWT)
             res.cookie('token', token).status(200).json("Successfully Logged in");

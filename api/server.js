@@ -3,12 +3,17 @@ const mongoose = require('mongoose');
 const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 require('dotenv').config()
 
 // Middleware
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(cors({
+    credentials: true,
+    origin: 'http://localhost:3000'
+  }))
 
 // Routes 
 app.use('/', require('./routes/Register'));
