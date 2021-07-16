@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import RegisterPage from "./Components/Pages/RegisterPage";
+import LoginPage from "./Components/Pages/LoginPage";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
           <Switch>
             <Route path="/register"> 
             <RegisterPage/>
+            </Route>
+            <Route path="/login">
+              <LoginPage/>
             </Route>
           </Switch>
         </Router>
