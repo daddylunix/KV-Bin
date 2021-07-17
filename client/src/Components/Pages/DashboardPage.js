@@ -40,8 +40,8 @@ const DashboardPage = () => {
             <br/>
             <h2>Create Paste:</h2>
             <form onSubmit={createPaste}>
-            <input type="text" value={title} placeholder="title" onChange={(e) => setTitle(e.target.value)}/>
-            <input type="text" value={body} placeholder="body" onChange={(e) => setBody(e.target.value)}/>
+            <input required type="text" value={title} placeholder="title" onChange={(e) => setTitle(e.target.value)}/>
+            <input required type="text" value={body} placeholder="body" onChange={(e) => setBody(e.target.value)}/>
             <button type="submit">Submit</button>
             </form>
             {JSON.stringify(pasteResponse.data)}
