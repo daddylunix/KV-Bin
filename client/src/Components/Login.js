@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 const Login = () => {
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ response, setResponse ] = useState("");
-    console.log(email)
-    console.log(password)
     const login = async (e) => {
         e.preventDefault();
         const config = {
@@ -22,12 +22,17 @@ const Login = () => {
     }
     return (
         <div>
+        <br/>
+        <center>
         <form onSubmit={login}>
-        <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>    
-        <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/> 
-        <button type="submit">Login</button>
+        <TextField required type="text" id="outlined-basic" label="Email" variant="outlined" value={email} onChange={(e) => setEmail(e.target.value)}/>   
+        <br/><br/>
+        <TextField required type="password" id="outlined-basic" label="Password" variant="outlined" value={password} onChange={(e) =>setPassword(e.target.value)}/>
+        <br/><br/>
+        <Button type="submit" variant="contained" color="primary">Login</Button>
         </form>      
         <h2>{JSON.stringify(response.data)}</h2> 
+        </center>
         </div>
     )
 }

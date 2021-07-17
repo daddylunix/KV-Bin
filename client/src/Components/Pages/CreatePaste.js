@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useHistory } from "react-router-dom";
-
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 const CreatePaste = () => {
     const [ response, setResponse ] = useState("");
@@ -27,12 +28,17 @@ const CreatePaste = () => {
     }
     return (
         <div>
-             <form onSubmit={createPaste}>
-            <input required type="text" value={title} placeholder="title" onChange={(e) => setTitle(e.target.value)}/>
+            <center>
+            <h2>Create Paste</h2>
+            <form onSubmit={createPaste}>
+            <TextField required type="text" id="outlined-basic" label="Title" variant="outlined" value={title} onChange={(e) => setTitle(e.target.value)}/>   
+            <br/><br/>
             <input required type="text" value={body} placeholder="body" onChange={(e) => setBody(e.target.value)}/>
-            <button type="submit">Submit</button>
+            <br/><br/>
+            <Button type="submit" variant="contained" color="primary">Create</Button>
             </form>
             {JSON.stringify(response)}
+            </center>
         </div>
     )
 }

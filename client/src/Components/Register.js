@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Snackbar from '@material-ui/core/Snackbar';
+import SnackbarContent from '@material-ui/core/SnackbarContent';
 
 const Register = () => {
     const [ username, setUsername ] = useState("");
@@ -22,10 +26,16 @@ const Register = () => {
     return (
         <div>
             <form onSubmit={register}>
-            <input required type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
-            <input required type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-            <input required type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-            <button type="submit">Register</button>
+            <br/>
+            <center>
+            <TextField required type="text" id="outlined-basic" label="Username" variant="outlined" value={username} onChange={(e) => setUsername(e.target.value)}/>
+            <br/><br/>
+            <TextField required type="text" id="outlined-basic" label="Email" variant="outlined" value={email} onChange={(e) => setEmail(e.target.value)}/>
+            <br/><br/>
+            <TextField required type="password" id="outlined-basic" label="Password" variant="outlined" value={password} onChange={(e) =>setPassword(e.target.value)}/>
+            <br/><br/>
+            <Button type="submit" variant="contained" color="primary">Register</Button>
+            </center>
             </form>
             <h2>{JSON.stringify(response.data)}</h2>
         </div>
