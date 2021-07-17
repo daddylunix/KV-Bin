@@ -18,6 +18,8 @@ app.use(cors({
 // Routes 
 app.use('/', require('./routes/Register'));
 app.use('/', require('./routes/Login'));
+app.use('/', require('./routes/Dashboard'));
+app.use('/', require('./routes/Paste'));
 
 // Database Connection
 mongoose.connect(process.env.URI, { useNewUrlParser: true}, () => {
