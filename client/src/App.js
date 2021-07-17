@@ -8,6 +8,7 @@ import {
 import RegisterPage from "./Components/Pages/RegisterPage";
 import LoginPage from "./Components/Pages/LoginPage";
 import DashboardPage from "./Components/Pages/DashboardPage";
+import CreatePaste from './Components/Pages/CreatePaste';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/register"> <RegisterPage/> </Route>
             <Route path="/login"> <LoginPage/> </Route>
             <Route path="/dashboard"> <DashboardPage/> </Route>
+            <Route path="/create"> <CreatePaste/> </Route>
           </Switch>
         </Router>
     </div>
