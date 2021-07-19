@@ -22,7 +22,6 @@ const Login = () => {
     }
     return (
         <div>
-        <br/>
         <center>
         <form onSubmit={login}>
         <TextField required type="text" id="outlined-basic" label="Email" variant="outlined" value={email} onChange={(e) => setEmail(e.target.value)}/>   
