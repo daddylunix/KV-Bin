@@ -34,9 +34,9 @@ const CreatePaste = () => {
             <center>
             <h2>Create Paste</h2>
             <form onSubmit={createPaste}>
-            <TextField style={{"width":"25%"}}   required type="text" id="outlined-basic" label="Title" variant="outlined" value={title} onChange={(e) => setTitle(e.target.value)}/>   
+            <TextField style={{"width":"25%"}}  required type="text" id="outlined-basic" label="Title" variant="outlined" value={title} onChange={(e) => setTitle(e.target.value)}/>   
             <br/><br/>
-            <TextField minRows={10} style={{"width":"50%"}} required type="text" id="outlined-basic" label="Body" variant="outlined" value={body} onChange={(e) => setBody(e.target.value)}/>
+            <TextField style={{"width":"25%"}}  multiline rows={10} rowsMax={15} id="outlined-basic" label="Body" variant="outlined" value={body} onChange={(e) => setBody(e.target.value)}/>
             <br/><br/>
             <Button type="submit" variant="contained" color="primary">Create</Button>
             </form>
