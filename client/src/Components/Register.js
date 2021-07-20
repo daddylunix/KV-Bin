@@ -26,7 +26,6 @@ const Register = () => {
     return (
         <div>
             <form onSubmit={register}>
-            
             <center>
             <TextField required type="text" id="outlined-basic" label="Username" variant="outlined" value={username} onChange={(e) => setUsername(e.target.value)}/>
             <br/><br/>
